@@ -127,11 +127,13 @@ apply_nss_config() {
 
 boost_performance() {
 
-  find /sys/kernel/debug/ath11k -name stats_disable| while read -r stats_disable; do
-    echo 1 > "$stats_disable"
-  done
+  if [ -d /sys/kernel/debug/ath11k ] ; then
+    find /sys/kernel/debug/ath11k -name stats_disable| while read -r stats_disable; do
+      echo 1 > "$stats_disable"
+    done
+  fi
 
-  ubus call iwinfo devices | jsonfilter -e "@.devices[*]"| while read -r device; do
+  ubus call iwinfo devices | jsonfilter -e "@.devices[*]" | while read -r device; do
     tc qdisc replace dev "${device}" root noqueue
   done
 

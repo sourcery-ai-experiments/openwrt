@@ -71,7 +71,7 @@ define Device/dynalink_dl-wrx36
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	DEVICE_DTS_CONFIG := config@rt5010w-d350-rev0
-	SOC := ipq8072
+	SOC := ipq8074
 	DEVICE_PACKAGES := ipq-wifi-dynalink_dl-wrx36
 endef
 TARGET_DEVICES += dynalink_dl-wrx36

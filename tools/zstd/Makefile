@@ -17,6 +17,9 @@ include $(INCLUDE_DIR)/host-build.mk
 
 HOSTCC:= $(HOSTCC_NOCACHE)
 
+HOST_CFLAGS += \
+	-fPIC
+
 HOST_MAKE_FLAGS += \
 	BACKTRACE=0 \
 	HAVE_THREAD=1 \
